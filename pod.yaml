@@ -17,12 +17,6 @@ spec:
     volumeMounts:
     - name: containerfile
       mountPath: /home/user/image
-    command: 
-    - /bin/bash
-    args:
-    - '-c'
-    - >-
-      podman build -t test:test -f ./image/Containerfile .
   volumes:
   - name: containerfile
     configMap:

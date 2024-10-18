@@ -27,4 +27,5 @@ RUN microdnf --disableplugin=subscription-manager install -y openssl git tar sha
 
 WORKDIR ${HOME}
 ENTRYPOINT [ "/entrypoint.sh" ]
+CMD ["/bin/bash","-c","podman build -t test:test -f ./image/Containerfile ."]
 
