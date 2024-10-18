@@ -15,7 +15,7 @@ spec:
         - "SETUID"
         - "SETGID"
     volumeMounts:
-    - name: continerfile
+    - name: containerfile
       mountPath: /home/user/image
     command: 
     - /bin/bash
