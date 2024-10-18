@@ -29,7 +29,7 @@ spec:
       name: image-config-map
       defaultMode: 444
       items:
-      - key: continerfile
+      - key: containerfile
         path: Containerfile
 
       
