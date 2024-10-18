@@ -26,7 +26,7 @@ spec:
   volumes:
   - name: containerfile
     configMap:
-      name: imageConfigMap
+      name: image-config-map
       defaultMode: 444
       items:
       - key: continerfile
