@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: podman
+ annotations:
+   io.kubernetes.cri-o.Devices: "/dev/fuse"
+spec:
+  containers:
+  - name: podman
+    image: quay.io/cgruver0/podman-in-a-pod:latest
+    securityContext:
+      allowPrivilegeEscalation: true
+      capabilities:
+        add:
+        - "SETUID"
+        - "SETGID"
+    volumeMounts:
+    - name: continerfile
+      mountPath: /home/user/image
+    command: 
+    - /bin/bash
+    args:
+    - '-c'
+    - >-
+      podman build -t test:test -f ./image/Containerfile .
+  volumes:
+  - name: containerfile
+    configMap:
+      name: imageConfigMap
+      defaultMode: 444
+      items:
+      - key: continerfile
+        path: Containerfile
+
+      

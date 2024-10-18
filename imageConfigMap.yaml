@@ -1,0 +1,9 @@
+kind: configMap
+apiVersion: v1
+metadata:
+  name: imageConfigMap
+data:
+  containerfile: |
+    FROM registry.access.redhat.com/ubi8/ubi-minimal
+    USER 1001
+    ENTRYPOINT ["tail", "-f", "/dev/null"]

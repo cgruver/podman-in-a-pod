@@ -1,0 +1,24 @@
+apiVersion: security.openshift.io/v1
+metadata:
+  name: podman-scc
+allowPrivilegeEscalation: true
+allowedCapabilities:
+- SETUID
+- SETGID
+fsGroup:
+  type: MustRunAs
+kind: SecurityContextConstraints
+priority: null
+runAsUser:
+  type: MustRunAsRange
+seLinuxContext:
+  type: MustRunAs
+supplementalGroups:
+  type: RunAsAny
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- persistentVolumeClaim
+- projected
+- secret
